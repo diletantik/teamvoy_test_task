@@ -1,0 +1,51 @@
+<%- model_class = Task -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:author) %></th>
+    </tr>
+  </thead>
+   <div id="show" align="center"></div>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.id, task_path(task) %></td>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%=l task.created_at %></td>
+        <td><%= task.user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<input type="hidden" name="mes" value="<%= @data %>" id="mes">
+
+<script>
+    $(document).ready(
+            function() {
+                setInterval(function() {
+                  var date = $('#mes').val();
+                    $.ajax({
+                      type: "POST",
+                      url: "/shared_new",
+                      data: {date: date},
+                        success: function(data,e){
+                        console.log(data)
+                        console.log(e)
+                        if(this){
+                           location.reload();
+
+                              }
+                         }
+                       });
+
+                }, 10000);
+            });
+</script>

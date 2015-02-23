@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails voyteam: development" uuid="5ff445db-8b19-4cab-b58a-cc2e3cd3eaf3">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails voyteam: test" uuid="6cb39a8f-ea99-4c88-83e1-4fe80d36b321">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
